@@ -32,6 +32,21 @@ view: synthdata {
     sql: ${TABLE}.city_state ;;
   }
 
+  dimension: city_postal_code {
+    type: zipcode
+    map_layer_name: postal_codes_layer
+    sql: CASE
+         WHEN ${TABLE}.city_state = 'New York-NY' THEN '10001'
+         WHEN ${TABLE}.city_state = 'Los Angeles-CA' THEN '90001'
+         WHEN ${TABLE}.city_state = 'Austin-TX' THEN '73301'
+         WHEN ${TABLE}.city_state = 'Atlanta-GA' THEN '30301'
+         WHEN ${TABLE}.city_state = 'Chicago-IL' THEN '60601'
+         WHEN ${TABLE}.city_state = 'Detroit-MI' THEN '48201'
+         WHEN ${TABLE}.city_state = 'Philadelphia-PA' THEN '19101'
+         ELSE NULL
+       END ;;
+  }
+
   dimension: clicks_t1000 {
     type: number
     sql: ${TABLE}.clicks_t1000 ;;
