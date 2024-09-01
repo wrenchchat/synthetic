@@ -1,5 +1,5 @@
 # Define the database connection to be used for this model.
-connection: "pipeline_synthetic"
+connection: "bq_synthetic"
 
 # include all the views
 include: "/views/**/*.view.lkml"
@@ -9,7 +9,7 @@ include: "/views/**/*.view.lkml"
 
 datagroup: synthetic_data_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  max_cache_age: "1 year"
 }
 
 persist_with: synthetic_data_default_datagroup
