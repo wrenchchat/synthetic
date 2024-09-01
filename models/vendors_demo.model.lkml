@@ -1,29 +1,20 @@
-# Define the database connection to be used for this model.
 connection: "bq_synthetic"
 
-# include all the views
 include: "/views/synthdata.view.lkml"
 include: "/dashboards/synthetic.dashboard.lookml"
 
-# Datagroups define a caching policy for an Explore. To learn more,
-# use the Quick Help panel on the right to see documentation.
-
 datagroup: vendors_demo_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
 persist_with: vendors_demo_default_datagroup
 
-# Explores allow you to join together different views (database tables) based on the
-# relationships between fields. By joining a view into an Explore, you make those
-# fields available to users for data analysis.
-# Explores should be purpose-built for specific use cases.
-
-# To see the Explore you’re building, navigate to the Explore menu and select an Explore under "Vendors Demo"
-
-# To create more sophisticated Explores that involve multiple views, you can use the join parameter.
-# Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
-# Each joined view also needs to define a primary key.
-
 explore: synthdata {}
+
+# Using the correct syntax to reference an external TopoJSON file
+map_layer: postal_codes_layer {
+  format: topojson  # Assuming the file is in TopoJSON format
+  feature_key: "postal_code"  # Key in the TopoJSON that identifies each feature
+  property_key: "name"  # The property used for labeling the regions
+  url: "https://raw.githubusercontent.com/wrenchchat/synthetic/c0bec97100196fcf8ba84d8587075c02d21e6258/maps/Postal_Codes_Map.topojson"
+}
