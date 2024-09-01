@@ -11,7 +11,6 @@ persist_with: vendors_demo_default_datagroup
 
 explore: synthdata {}
 
-# Using the correct syntax to reference an external TopoJSON file
 map_layer: postal_codes_layer {
   format: topojson  # Assuming the file is in TopoJSON format
   feature_key: "postal_code"  # Key in the TopoJSON that identifies each feature
