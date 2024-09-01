@@ -32,9 +32,6 @@ view: synthdata {
     sql: ${TABLE}.city_state ;;
   }
 
-# Custom map layer definition using the GeoJSON file hosted on GitHub
-
-# Dimension mapping city-state combinations to postal codes
   dimension: city_postal_code {
     type: zipcode
     map_layer_name: postal_codes_layer
@@ -49,6 +46,7 @@ view: synthdata {
          ELSE NULL
        END ;;
   }
+
   dimension: clicks_t1000 {
     type: number
     sql: ${TABLE}.clicks_t1000 ;;
