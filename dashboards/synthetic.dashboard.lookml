@@ -7,7 +7,7 @@
   elements:
   - title: Impressions for T1000 Campaign all Vendors
     name: Impressions for T1000 Campaign all Vendors
-    model: synthetic_data
+    model: vendors_demo
     explore: synthdata
     type: looker_area
     fields: [synthdata.dts_date, sumimpressions_t1000, synthdata.vendors]
@@ -84,7 +84,7 @@
     height: 12
   - title: Click for T800 Campaign all Vendors
     name: Click for T800 Campaign all Vendors
-    model: synthetic_data
+    model: vendors_demo
     explore: synthdata
     type: looker_area
     fields: [synthdata.dts_date, synthdata.vendors, sumclicks_t800]
@@ -171,7 +171,7 @@
     height: 6
   - title: CTR_T800_Campaign_all_Vendors
     name: CTR_T800_Campaign_all_Vendors
-    model: synthetic_data
+    model: vendors_demo
     explore: synthdata
     type: looker_line
     fields: [synthdata.dts_date, synthdata.vendors, sumclicks_t800, sumimpressions_t800]
@@ -276,7 +276,7 @@
     height: 6
   - title: CTR by City
     name: CTR by City
-    model: synthetic_data
+    model: vendors_demo
     explore: synthdata
     type: looker_geo_coordinates
     fields: [synthdata.city_postal_code, synthdata.city_state, sumclicks_t800, sumimpressions_t800,
